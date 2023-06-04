@@ -12,6 +12,7 @@ struct CWC_MonthlyApp_HydrationApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(HealthKitViewModel())
         }
     }
 }

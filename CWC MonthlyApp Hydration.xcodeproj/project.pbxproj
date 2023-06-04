@@ -11,6 +11,11 @@
 		DE7DACE92A1EF79800B4FC30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7DACE82A1EF79800B4FC30 /* ContentView.swift */; };
 		DE7DACEB2A1EF79900B4FC30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7DACEA2A1EF79900B4FC30 /* Assets.xcassets */; };
 		DE7DACEE2A1EF79900B4FC30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7DACED2A1EF79900B4FC30 /* Preview Assets.xcassets */; };
+		DE7DACF62A2836C300B4FC30 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7DACF52A2836C300B4FC30 /* HealthKitManager.swift */; };
+		DEBC90382A2BBDE100C75CE0 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90372A2BBDE100C75CE0 /* HealthKitViewModel.swift */; };
+		DEBC903A2A2C0FB200C75CE0 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90392A2C0FB200C75CE0 /* CircularProgressView.swift */; };
+		DEBC90412A2C194B00C75CE0 /* AuthorizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90402A2C194B00C75CE0 /* AuthorizedView.swift */; };
+		DEBC90432A2C195500C75CE0 /* DeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90422A2C195500C75CE0 /* DeniedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,12 @@
 		DE7DACE82A1EF79800B4FC30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE7DACEA2A1EF79900B4FC30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE7DACED2A1EF79900B4FC30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DE7DACF42A282D6900B4FC30 /* CWC MonthlyApp Hydration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CWC MonthlyApp Hydration.entitlements"; sourceTree = "<group>"; };
+		DE7DACF52A2836C300B4FC30 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		DEBC90372A2BBDE100C75CE0 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
+		DEBC90392A2C0FB200C75CE0 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		DEBC90402A2C194B00C75CE0 /* AuthorizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedView.swift; sourceTree = "<group>"; };
+		DEBC90422A2C195500C75CE0 /* DeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeniedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +62,11 @@
 		DE7DACE52A1EF79800B4FC30 /* CWC MonthlyApp Hydration */ = {
 			isa = PBXGroup;
 			children = (
+				DE7DACF42A282D6900B4FC30 /* CWC MonthlyApp Hydration.entitlements */,
 				DE7DACE62A1EF79800B4FC30 /* CWC_MonthlyApp_HydrationApp.swift */,
-				DE7DACE82A1EF79800B4FC30 /* ContentView.swift */,
+				DEBC903C2A2C0FBF00C75CE0 /* Models */,
+				DEBC903B2A2C0FB900C75CE0 /* Views */,
+				DEBC903D2A2C0FC600C75CE0 /* ViewModels */,
 				DE7DACEA2A1EF79900B4FC30 /* Assets.xcassets */,
 				DE7DACEC2A1EF79900B4FC30 /* Preview Content */,
 			);
@@ -65,6 +79,49 @@
 				DE7DACED2A1EF79900B4FC30 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DEBC903B2A2C0FB900C75CE0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE7DACE82A1EF79800B4FC30 /* ContentView.swift */,
+				DEBC90392A2C0FB200C75CE0 /* CircularProgressView.swift */,
+				DEBC903E2A2C193000C75CE0 /* Authorized */,
+				DEBC903F2A2C193900C75CE0 /* Denied */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEBC903C2A2C0FBF00C75CE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DEBC903D2A2C0FC600C75CE0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC90372A2BBDE100C75CE0 /* HealthKitViewModel.swift */,
+				DE7DACF52A2836C300B4FC30 /* HealthKitManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DEBC903E2A2C193000C75CE0 /* Authorized */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC90402A2C194B00C75CE0 /* AuthorizedView.swift */,
+			);
+			path = Authorized;
+			sourceTree = "<group>";
+		};
+		DEBC903F2A2C193900C75CE0 /* Denied */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC90422A2C195500C75CE0 /* DeniedView.swift */,
+			);
+			path = Denied;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE7DACE92A1EF79800B4FC30 /* ContentView.swift in Sources */,
+				DEBC90382A2BBDE100C75CE0 /* HealthKitViewModel.swift in Sources */,
+				DEBC90432A2C195500C75CE0 /* DeniedView.swift in Sources */,
 				DE7DACE72A1EF79800B4FC30 /* CWC_MonthlyApp_HydrationApp.swift in Sources */,
+				DEBC90412A2C194B00C75CE0 /* AuthorizedView.swift in Sources */,
+				DEBC903A2A2C0FB200C75CE0 /* CircularProgressView.swift in Sources */,
+				DE7DACF62A2836C300B4FC30 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,12 +326,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "CWC MonthlyApp Hydration/CWC MonthlyApp Hydration.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CWC MonthlyApp Hydration/Preview Content\"";
 				DEVELOPMENT_TEAM = 8MCC9LTPL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to access your Health Data.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write Health data based on your health history.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,12 +358,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "CWC MonthlyApp Hydration/CWC MonthlyApp Hydration.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CWC MonthlyApp Hydration/Preview Content\"";
 				DEVELOPMENT_TEAM = 8MCC9LTPL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to access your Health Data.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write Health data based on your health history.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
