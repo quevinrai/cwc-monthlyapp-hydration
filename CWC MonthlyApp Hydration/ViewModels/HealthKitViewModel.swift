@@ -12,7 +12,7 @@ class HealthKitViewModel: ObservableObject {
     private var healthStore = HKHealthStore()
     private var healthKitManager = HealthKitManager()
     @Published var userWaterCount = ""
-    @Published var isAuthorized = false
+    @Published var authStatus = ""
     
     init() {
         changeAuthorizationStatus()
@@ -44,13 +44,13 @@ class HealthKitViewModel: ObservableObject {
         DispatchQueue.main.async {
             switch status {
                 case .notDetermined:
-                    self.isAuthorized = false
+                    self.authStatus = "Not Determined"
                 case .sharingDenied:
-                    self.isAuthorized = false
+                    self.authStatus = "Denied"
                 case .sharingAuthorized:
-                    self.isAuthorized = true
+                    self.authStatus = "Authorized"
                 @unknown default:
-                    self.isAuthorized = false
+                    self.authStatus = ""
             }
         }
     }

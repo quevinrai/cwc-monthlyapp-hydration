@@ -13,14 +13,14 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if vm.isAuthorized {
+            if vm.authStatus == "Authorized" {
                 VStack {
                     AuthorizedView()
                     ZStack {
                         CircularProgressView()
                     }
                 }
-            } else {
+            } else if vm.authStatus == "Not Determined" {
                 VStack {
                     Text("Please Authorize Health!")
                         .font(.title3)
@@ -36,6 +36,8 @@ struct ContentView: View {
                     .background(Color(.orange))
                     .cornerRadius(10)
                 }
+            } else if vm.authStatus == "Denied" {
+                DeniedView()
             }
         }
         .padding()
