@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircularProgressView: View {
-    @State var progressValue: Float = 0.0
+    @Binding var progressValue: Double
     
     var body: some View {
         VStack {
@@ -19,21 +19,21 @@ struct CircularProgressView: View {
                     self.progressValue = 0.0
                 }
             
-            Button("Increment") {
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    if(progressValue) < 1.0 {
-                        self.progressValue += 0.10
-                    } else {
-                        progressValue -= 1.0
-                    }
-                }
-            }
+//            Button("Increment") {
+//                withAnimation(.easeInOut(duration: 0.5)) {
+//                    if(progressValue) < 1.0 {
+//                        self.progressValue += 0.10
+//                    } else {
+//                        progressValue -= 1.0
+//                    }
+//                }
+//            }
         }
     }
 }
 
 struct ProgressBar: View {
-    @Binding var progress: Float
+    @Binding var progress: Double
     var color: Color = Color.blue
     
     var body: some View {
@@ -55,6 +55,6 @@ struct ProgressBar: View {
 
 struct CircularProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        CircularProgressView()
+        CircularProgressView(progressValue: .constant(0.0))
     }
 }
