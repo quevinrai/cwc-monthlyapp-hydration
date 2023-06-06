@@ -18,6 +18,8 @@
 		DEBC90432A2C195500C75CE0 /* DeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90422A2C195500C75CE0 /* DeniedView.swift */; };
 		DEBC90462A2D632F00C75CE0 /* InfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90452A2D632F00C75CE0 /* InfoSheet.swift */; };
 		DEBC90482A2D814600C75CE0 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC90472A2D814600C75CE0 /* SettingsSheet.swift */; };
+		DEBC904D2A2ED63E00C75CE0 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC904C2A2ED63E00C75CE0 /* K.swift */; };
+		DEBC904F2A2EDBE300C75CE0 /* WaterCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBC904E2A2EDBE300C75CE0 /* WaterCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		DEBC90422A2C195500C75CE0 /* DeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeniedView.swift; sourceTree = "<group>"; };
 		DEBC90452A2D632F00C75CE0 /* InfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheet.swift; sourceTree = "<group>"; };
 		DEBC90472A2D814600C75CE0 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		DEBC904C2A2ED63E00C75CE0 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		DEBC904E2A2EDBE300C75CE0 /* WaterCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				DEBC903C2A2C0FBF00C75CE0 /* Models */,
 				DEBC903B2A2C0FB900C75CE0 /* Views */,
 				DEBC903D2A2C0FC600C75CE0 /* ViewModels */,
+				DEBC904B2A2ED61B00C75CE0 /* Utilities */,
 				DE7DACEA2A1EF79900B4FC30 /* Assets.xcassets */,
 				DE7DACEC2A1EF79900B4FC30 /* Preview Content */,
 			);
@@ -89,10 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				DE7DACE82A1EF79800B4FC30 /* ContentView.swift */,
-				DEBC90392A2C0FB200C75CE0 /* CircularProgressView.swift */,
-				DEBC90442A2D631800C75CE0 /* Sheets */,
 				DEBC903E2A2C193000C75CE0 /* Authorized */,
 				DEBC903F2A2C193900C75CE0 /* Denied */,
+				DEBC90442A2D631800C75CE0 /* Sheets */,
+				DEBC904A2A2ED5C500C75CE0 /* CustomComponents */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 		DEBC903C2A2C0FBF00C75CE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DEBC904E2A2EDBE300C75CE0 /* WaterCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +142,22 @@
 				DEBC90472A2D814600C75CE0 /* SettingsSheet.swift */,
 			);
 			path = Sheets;
+			sourceTree = "<group>";
+		};
+		DEBC904A2A2ED5C500C75CE0 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC90392A2C0FB200C75CE0 /* CircularProgressView.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		DEBC904B2A2ED61B00C75CE0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC904C2A2ED63E00C75CE0 /* K.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,12 +231,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE7DACE92A1EF79800B4FC30 /* ContentView.swift in Sources */,
+				DEBC904D2A2ED63E00C75CE0 /* K.swift in Sources */,
 				DEBC90382A2BBDE100C75CE0 /* HealthKitViewModel.swift in Sources */,
 				DEBC90432A2C195500C75CE0 /* DeniedView.swift in Sources */,
 				DE7DACE72A1EF79800B4FC30 /* CWC_MonthlyApp_HydrationApp.swift in Sources */,
 				DEBC90412A2C194B00C75CE0 /* AuthorizedView.swift in Sources */,
 				DEBC903A2A2C0FB200C75CE0 /* CircularProgressView.swift in Sources */,
 				DEBC90482A2D814600C75CE0 /* SettingsSheet.swift in Sources */,
+				DEBC904F2A2EDBE300C75CE0 /* WaterCollection.swift in Sources */,
 				DE7DACF62A2836C300B4FC30 /* HealthKitManager.swift in Sources */,
 				DEBC90462A2D632F00C75CE0 /* InfoSheet.swift in Sources */,
 			);

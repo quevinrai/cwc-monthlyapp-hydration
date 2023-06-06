@@ -35,7 +35,7 @@ struct AuthorizedView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
+            
                 VStack {
                     Text(dateToday)
                         .font(.largeTitle)
@@ -67,7 +67,57 @@ struct AuthorizedView: View {
                 
                 Text("1,000 mL / 3,700 mL")
                     .bold()
-            }
+                    .padding(.vertical, 5)
+                    .padding(.bottom, 10)
+                
+                HStack {
+                    Text("100 mL")
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Water")
+                        Image(systemName: "drop.fill")
+                            .foregroundColor(.blue)
+                    }
+                    
+                    Text("2:03 PM")
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(.white)
+                        .shadow(radius: 5)
+                )
+                .padding(.horizontal)
+                
+                List {
+                    ForEach(vm.waters) { water in
+                        HStack {
+                            Text("\(water.value) mL")
+                            
+                            Spacer()
+                            
+                            Text("\(water.time)")
+                        }
+//                        .padding(.vertical)
+//                        .background(
+//                            RoundedRectangle(cornerRadius: 5)
+//                                .fill(.white)
+//                                .shadow(radius: 5)
+//                        )
+//                        .padding(.horizontal)
+                    }.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button {
+                            
+                        } label: {
+                            Text("Delete")
+                        }.tint(.red)
+                    }
+                }
+                
+            
             
             HStack {
                 Button {
