@@ -26,7 +26,7 @@ class HealthKitManager {
     }
     
     func readWaterCount(healthStore: HKHealthStore, completion: @escaping (HKStatistics) -> Void) {
-        let stepQuantityType = HKQuantityType(.dietaryWater) // Data we want to read from HealthKit
+        let waterQuantityType = HKQuantityType(.dietaryWater) // Data we want to read from HealthKit
         let userLocale = Locale(identifier: "en-US")
         let now = Date()
         let formatter = DateFormatter()
@@ -41,7 +41,7 @@ class HealthKitManager {
         var interval = DateComponents()
         interval.minute = 1
         
-        let query = HKStatisticsCollectionQuery(quantityType: stepQuantityType, quantitySamplePredicate: nil, options: [.cumulativeSum, .separateBySource], anchorDate: anchorDate!, intervalComponents: interval)
+        let query = HKStatisticsCollectionQuery(quantityType: waterQuantityType, quantitySamplePredicate: nil, options: [.cumulativeSum, .separateBySource], anchorDate: anchorDate!, intervalComponents: interval)
         
         query.initialResultsHandler = { query, results, error in
             guard let results = results else { return }
@@ -53,5 +53,27 @@ class HealthKitManager {
         
         // Execute query
         healthStore.execute(query)
+    }
+    
+    func saveWaterCount(healthStore: HKHealthStore, ounces: Double) {
+        let waterQuantityType = HKQuantityType(.dietaryWater)
+        
+        let quantityUnit = HKUnit(from: "fl_oz_us")
+        let quantityAmount = HKQuantity(unit: quantityUnit, doubleValue: ounces)
+        let now = Date()
+        
+        let sample = HKQuantitySample(type: waterQuantityType, quantity: quantityAmount, start: now, end: now)
+        let correlationType = HKCorrelationType(.food)
+        
+        let waterCorrelationForWaterAmount = HKCorrelation(type: correlationType, start: now, end: now, objects: [sample])
+        
+        healthStore.save(waterCorrelationForWaterAmount) { success, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+                print("Water data was successfully saved!")
+            }
+        }
     }
 }
