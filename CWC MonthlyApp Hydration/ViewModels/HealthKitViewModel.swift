@@ -29,14 +29,6 @@ class HealthKitViewModel: ObservableObject {
     
     func readStepsTakenToday() {
         healthKitManager.readWaterCount(healthStore: healthStore) { result in
-            // Check if step != 0.0
-            // Then it will be assigned to userStepCount with a formatted zero decimal number
-//            if waterValue != 0.0 {
-//                DispatchQueue.main.async {
-//                    self.userWaterCount = String(format: "%.0f", waterValue)
-//                    self.waterCollection.append(self.userWaterCount)
-//                }
-//            }
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en-US")
             formatter.setLocalizedDateFormatFromTemplate("hh mm a")
@@ -46,13 +38,11 @@ class HealthKitViewModel: ObservableObject {
             
             if value != 0 {
                 DispatchQueue.main.async {
-    //                self.waterCollection.append(result)
                     self.waters.append(WaterCollection(
                         id: UUID(),
                         value: value,
                         time: time,
                         drinkType: ""))
-//                    print("\(value) - \(time)")
                 }
             }
         }
