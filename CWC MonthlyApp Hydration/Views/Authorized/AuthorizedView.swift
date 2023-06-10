@@ -70,44 +70,28 @@ struct AuthorizedView: View {
                     .padding(.vertical, 5)
                     .padding(.bottom, 10)
                 
-                HStack {
-                    Text("100 mL")
-                    
-                    Spacer()
-                    
-                    HStack {
-                        Text("Water")
-                        Image(systemName: "drop.fill")
-                            .foregroundColor(.blue)
-                    }
-                    
-                    Text("2:03 PM")
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(.white)
-                        .shadow(radius: 5)
-                )
-                .padding(.horizontal)
-                
                 List {
-                    ForEach(vm.waters) { water in
+                    ForEach(vm.waters.isEmpty ? [WaterCollection.example] : vm.waters) { water in
                         HStack {
                             Text("\(water.value) mL")
                             
                             Spacer()
                             
+                            HStack {
+                                Text("Water")
+                                Image(systemName: "drop.fill")
+                                    .foregroundColor(.blue)
+                            }
+                            
                             Text("\(water.time)")
                         }
-//                        .padding(.vertical)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 5)
-//                                .fill(.white)
-//                                .shadow(radius: 5)
-//                        )
-//                        .padding(.horizontal)
+                        .listRowSeparator(.hidden)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(.white)
+                                .shadow(radius: 5)
+                        )
                     }.swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button {
                             
@@ -116,7 +100,7 @@ struct AuthorizedView: View {
                         }.tint(.red)
                     }
                 }
-                
+                .listStyle(.plain)
             
             
             HStack {

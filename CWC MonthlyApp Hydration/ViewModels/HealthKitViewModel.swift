@@ -5,15 +5,16 @@
 //  Created by Quevin Bambasi on 6/3/23.
 //
 
+import SwiftUI
 import Foundation
 import HealthKit
 
 class HealthKitViewModel: ObservableObject {
-    private var healthStore = HKHealthStore()
-    private var healthKitManager = HealthKitManager()
     @Published var waters = [WaterCollection]()
     @Published var userWaterCount = ""
     @Published var authStatus = ""
+    private var healthStore = HKHealthStore()
+    private var healthKitManager = HealthKitManager()
     
     init() {
         self.changeAuthorizationStatus()

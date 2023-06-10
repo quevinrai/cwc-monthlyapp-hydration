@@ -41,13 +41,6 @@ class HealthKitManager {
         var interval = DateComponents()
         interval.minute = 1
         
-        // Prepare date as predicate to read today's step count data
-        // .strictStartDate allows data that I read to be within the time range specified to get exact today's step count data
-//        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        // .cumulativeSum calculates sum of all steps recorded in a day
-        // Health app shows steps recorded by the hour
-        // Need to sum all of it to get the total step count
         let query = HKStatisticsCollectionQuery(quantityType: stepQuantityType, quantitySamplePredicate: nil, options: [.cumulativeSum, .separateBySource], anchorDate: anchorDate!, intervalComponents: interval)
         
         query.initialResultsHandler = { query, results, error in
@@ -61,30 +54,4 @@ class HealthKitManager {
         // Execute query
         healthStore.execute(query)
     }
-    
-//    func readWaterCounts(forToday: Date, healthStore: HKHealthStore, completion: @escaping (Double) -> Void) {
-//        let stepQuantityType = HKQuantityType(.dietaryWater) // Data we want to read from HealthKit
-//        let now = Date()
-//        let startOfDay = Calendar.current.startOfDay(for: now)
-//
-//        // Prepare date as predicate to read today's step count data
-//        // .strictStartDate allows data that I read to be within the time range specified to get exact today's step count data
-//        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-//
-//        // .cumulativeSum calculates sum of all steps recorded in a day
-//        // Health app shows steps recorded by the hour
-//        // Need to sum all of it to get the total step count
-//        let query = HKStatisticsQuery(quantityType: stepQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, error in
-//            guard let result = result, let sum = result.sumQuantity() else {
-//                completion(0.0)
-//                return
-//            }
-//
-//            // Completion contains sum of the step count converted into a double value
-//            completion(sum.doubleValue(for: HKUnit.literUnit(with: .milli)))
-//        }
-//
-//        // Execute query
-//        healthStore.execute(query)
-//    }
 }
